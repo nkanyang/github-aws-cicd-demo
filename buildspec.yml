@@ -19,7 +19,7 @@ phases:
       # - wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
       # - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
       # - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
-      - apt-get install -y maven
+      - apt install -y maven
       - mvn -v
       
   pre_build: 
