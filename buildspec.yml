@@ -20,7 +20,7 @@ phases:
       # - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
       # - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
       - wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-      #- sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+      - sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
       - yum install -y apache-maven
       - mvn -v
       
