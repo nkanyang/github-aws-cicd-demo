@@ -16,9 +16,11 @@ phases:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
       - echo Installing mvn....
-      - wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-      - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
-      - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
+      # - wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+      # - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
+      # - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
+      - apt-get update -y
+      - apt-get install -y maven
       - mvn -v
       
   pre_build: 
