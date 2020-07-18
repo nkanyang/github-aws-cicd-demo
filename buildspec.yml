@@ -19,8 +19,9 @@ phases:
       # - wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
       # - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
       # - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
-      - apt update
-      - apt install maven
+      - wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+      - sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+      - yum install -y apache-maven
       - mvn -v
       
   pre_build: 
