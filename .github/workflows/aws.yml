@@ -58,8 +58,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: demo
-#        IMAGE_TAG: ${{ github.sha }}
-        IMAGE_TAG: lastest
+        IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
@@ -74,8 +73,7 @@ jobs:
       with:
         task-definition: task-definition.json
         container-name: democontainer
-        #image: ${{ steps.build-image.outputs.image }}
-        image: latest
+        image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
